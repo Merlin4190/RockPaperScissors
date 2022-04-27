@@ -29,7 +29,13 @@ class RandomPlayer(Player):
 
 class HumanPlayer(Player):
     def move(self):
-        return input("Enter your move: ")
+        while True:
+            move = input("Enter your move: ")
+            move = move.lower()
+            if move in moves:
+                return move
+            else:
+                print("You have a typo, please try again!")
 
 class ReflectPlayer:
     def __init__(self):
